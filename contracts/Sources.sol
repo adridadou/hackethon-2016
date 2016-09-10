@@ -2,8 +2,7 @@ pragma solidity ^0.4.1;
 
 contract Source {
     
-//hash, value (+/-), constraint, milestone
-    struct Source{
+struct Source{
         bytes32 hash;
         int8 value;
         //constraint?
@@ -11,20 +10,28 @@ contract Source {
     }
 
      mapping (bytes32 => Source) Sources;
+     uint32 numSources;
+     mapping(bytes32 => Sources) Milestones;
+     uint32 numMilestones;
+     mapping(bytes32 => Milestones) Data;
+     uint32 numContracts;
      
-     function checkSourceExists(bytes32 hash){
+     //Source s = Data[0][0][0]; //Data[contractId][milestoneId][sourceId]
+
+     function checkSourceExists(bytes32 contract, bytes32 milestone, bytes32 hash) constant returns (bool){
          //ToDo
          }
          
-     function addSource(bytes32 hash, int8 value, bytes32 milestone /*, constraint? */){
+     function addSource(bytes32 contract, bytes32 milestone, bytes32 hash, int8 value, /*, constraint? */){
          //ToDo
      }
      
-     function sourceValue(bytes32 hash){
+     function getSource(bytes32 contract, bytes32 milestone, bytes32 hash) constant returns (Source){
          //ToDo
      }
      
-     function totalSourceValueForMilestone(bytes32 milestone){
+     function allSourcesForMilestone(bytes32 contract, bytes32 milestone) constant returns (Source[]){
          //ToDo
      }
+
 }
