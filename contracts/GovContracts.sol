@@ -3,8 +3,7 @@ contract GovContracts {
 	struct GovContract {
 		uint128		id;
 		bytes		termsHash;
-		bool		projectDone;
-		address 	government;
+        bytes       name;
 	}
 	// Create type structure for government contracts that governments can 
 	// build and register with our smart contract on the blockchain 
@@ -13,33 +12,36 @@ contract GovContracts {
 	// map unique id numbers for all government contracts
 
 	uint32 public numberContracts;
+
+	address owner;
 	// create counter for the number of government contracts and initially set to 0
 
-    function buildContract(bytes contractHash) { 
+	function GovContracts () {
+		owner = msg.sender;
+	}
+
+    function buildContract(bytes contractHash, bytes name) { 
     	// Create a new government contract 
     	// BlockOne Modifer needed (only Government)
     	
     	GovContract NewContract = contracts[numberContracts];
     	NewContract.id = numberContracts;
     	NewContract.termsHash = contractHash;
-    	NewContract.government = msg.sender;
-    	NewContract.projectDone = false;
+        NewContract.name = name;
     	numberContracts++;
 
-    }
-
-    function terminateContract(uint128 id) { 
-    	// Sets completion attribute to true in order to flush
-    	// Modifier needed (only Government that submitted)
-    	contracts[id].projectDone = true;
     }
 
     function getNumberContracts() constant returns (uint){
     	return numberContracts;
     }
 
-    function getContractHash(uint128 id) returns (bytes) {
+    function getContractHash(uint128 id) constant returns (bytes) {
     	return contracts[id].termsHash;
+    }
+
+    function getContractName(uint128 id) constant returns (bytes) {
+        return contracts[id].name;
     }
 
     struct Milestone {
