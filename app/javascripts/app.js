@@ -23,9 +23,4 @@ window.onload = function() {
   web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
   //var myContract = myWeb3.eth.contract(abi).at(contractAddress);
-
-  var account = walletBar.getCurrentAccount();
-
-  console.log(account);
-
 }
