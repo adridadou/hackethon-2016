@@ -1,55 +1,23 @@
-var accounts;
-var account;
 
-function setStatus(message) {
-  var status = document.getElementById("status");
-  status.innerHTML = message;
-};
+      // PUT YOUR UNIQUE ID HERE
+//  (from the devadmin page, the one with '-edgware' appended)
+var dappId = 'pubcrawl';
 
-function refreshBalance() {
-  var meta = MetaCoin.deployed();
+// PUT YOUR CALLBACK URL HERE
+var callbackUrl = 'http://localhost:8080';
+// the callback must EXACTLY match the string configured in the devadmin web UI.
+// e.g. be careful of trailing slashes
 
-  meta.getBalance.call(account, {from: account}).then(function(value) {
-    var balance_element = document.getElementById("balance");
-    balance_element.innerHTML = value.valueOf();
-  }).catch(function(e) {
-    console.log(e);
-    setStatus("Error getting balance; see log.");
-  });
-};
-
-function sendCoin() {
-  var meta = MetaCoin.deployed();
-
-  var amount = parseInt(document.getElementById("amount").value);
-  var receiver = document.getElementById("receiver").value;
-
-  setStatus("Initiating transaction... (please wait)");
-
-  meta.sendCoin(receiver, amount, {from: account}).then(function() {
-    setStatus("Transaction complete!");
-    refreshBalance();
-  }).catch(function(e) {
-    console.log(e);
-    setStatus("Error sending coin; see log.");
-  });
-};
+// PUT YOUR CONTRACT ADDRESS HERE
+var contractAddress = '0x5480389cbd36a9babac289ce9ee482129acf9d7b';
 
 window.onload = function() {
-  web3.eth.getAccounts(function(err, accs) {
-    if (err != null) {
-      alert("There was an error fetching your accounts.");
-      return;
-    }
-
-    if (accs.length == 0) {
-      alert("Couldn't get any accounts! Make sure your Ethereum client is configured correctly.");
-      return;
-    }
-
-    accounts = accs;
-    account = accounts[0];
-
-    refreshBalance();
+  var walletBar = new WalletBar({
+    dappNamespace: dappId,
+    authServiceCallbackUrl: callbackUrl
   });
+
+  var web3 = new Web3();
+  web3.setProvider(walletBar.getHook('edgware'));
+  var myContract = web3.eth.contract(abi).at(contractAddress);
 }
