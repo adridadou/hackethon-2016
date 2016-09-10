@@ -45,7 +45,6 @@ contract GovContracts {
 
 contract MilestoneUtility {
 
-
 	struct Milestone {
 		uint128 	id;
 		uint128 	contractId;
@@ -54,7 +53,16 @@ contract MilestoneUtility {
 		bool		withdrawn;
 	}
 
+    // Create type structure for milestone submissions that can be pushed to voters
+
+    mapping(uint128 => Milestone) milestones;
+    // map unique id numbers for all submissions of milestones
+
+    uint32 public numberMilestones;
+    // create counter for the number of government contracts and initially set to 0
+
     function withdrawMilestone() { // Modifier needed (only Government that submitted)
-        //New = true;
+        milestones[id].withdrawn = true;
+        // Sets withdrawn to true in order to remove milestone from active list
     }
 }
