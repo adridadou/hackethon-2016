@@ -6,12 +6,12 @@ var dappId = 'pubcrawl-edgware';
 // PUT YOUR CALLBACK URL HERE
 var callbackUrl = 'http://localhost:8080';
 
-var web3, walletBar;
+var web3, walletBar, govContracts;
 // the callback must EXACTLY match the string configured in the devadmin web UI.
 // e.g. be careful of trailing slashes
 
 // PUT YOUR CONTRACT ADDRESS HERE
-var contractAddress = '0x5480389cbd36a9babac289ce9ee482129acf9d7b';
+var contractAddress = '0x9d1f5b5de6b245dda69b3446e5b8462be1053907';
 
 window.onload = function() {
   walletBar = new WalletBar({
@@ -22,5 +22,5 @@ window.onload = function() {
 
   web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
-  //var myContract = myWeb3.eth.contract(abi).at(contractAddress);
+  govContracts = web3.eth.contract(GovContracts.all_networks.default.abi).at(contractAddress);
 }
