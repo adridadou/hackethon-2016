@@ -1,6 +1,7 @@
 module.exports = {
   build: {
     "index.html": "index.html",
+    "vote.html": "vote.html",
     "app.js": [
       "javascripts/app.js"
     ],
@@ -9,6 +10,9 @@ module.exports = {
     ],
     "jumbotron.css": [
       "stylesheets/jumbotron.css"
+    ],
+    "starter-template.css": [
+      "stylesheets/starter-template.css"
     ],
     "images/": "images/"
   },
