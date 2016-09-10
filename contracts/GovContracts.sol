@@ -13,18 +13,18 @@ contract GovContracts {
 	// map unique id numbers for all government contracts
 
 	uint32 public numberContracts;
-	numberContracts = 0;
 	// create counter for the number of government contracts and initially set to 0
 
     function buildContract(uint128 id, bytes contractHash) { 
     	// Create a new government contract 
     	// BlockOne Modifer needed (only Government)
     	
-    	var NewContract GovContract;
+    	GovContract NewContract = contracts[numberContracts];
     	NewContract.id = id;
     	NewContract.termsHash = contractHash;
     	NewContract.government = msg.sender;
     	NewContract.projectDone = false;
+    	numberContracts++;
 
     }
 
@@ -33,19 +33,13 @@ contract GovContracts {
     	// Modifier needed (only Government that submitted)
     	contracts[id].projectDone = true;
     }
-    
-    function registerContract(GovContract subContract) {
-    	subContract
+
+    function getNumberContracts() constant returns (uint){
+    	return numberContracts;
     }
 
-    function getNumberContracts() {
-
-    }
-
-    function getContractHash(uint128 id) {
-    	var returnHash;
-    	returnHash = contracts[id].termsHash;
-    	return returnHash;
+    function getContractHash(uint128 id) returns (bytes) {
+    	return contracts[id].termsHash;
     }
 }
 
@@ -60,27 +54,7 @@ contract MilestoneUtility {
 		bool		withdrawn;
 	}
 
-	function buildMilestone() {
-		var NewMilestone Milestone;
-    	Milestone.id = id;
-    	Milestone.contractId = ;
-    	NewContract.duration = ;
-    	NewContract.targetBudget = ;
-    	NewContract.withdrawn = false;
-    }
-
     function withdrawMilestone() { // Modifier needed (only Government that submitted)
-        New = true;
+        //New = true;
     }
-    
-    function registerContract(GovContract subContract) {
-    	
-	}
-}
-
-
-
-}
-
-
 }
