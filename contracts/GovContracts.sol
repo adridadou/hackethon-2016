@@ -15,12 +15,12 @@ contract GovContracts {
 	uint32 public numberContracts;
 	// create counter for the number of government contracts and initially set to 0
 
-    function buildContract(uint128 id, bytes contractHash) { 
+    function buildContract(bytes contractHash) { 
     	// Create a new government contract 
     	// BlockOne Modifer needed (only Government)
     	
     	GovContract NewContract = contracts[numberContracts];
-    	NewContract.id = id;
+    	NewContract.id = numberContracts;
     	NewContract.termsHash = contractHash;
     	NewContract.government = msg.sender;
     	NewContract.projectDone = false;
