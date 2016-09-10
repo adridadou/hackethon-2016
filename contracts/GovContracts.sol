@@ -68,21 +68,7 @@ contract MilestoneUtility {
         NewMilestone.id = numberMilestones;
         NewMilestone.contractId = govContract_id;
         NewMilestone.duration = duration;
-        NewContract.targetBudget = targetBudget;
+        NewMilestone.targetBudget = targetBudget;
         numberMilestones++;
     }
-
-   // function terminateContract(uint128 id) { 
-        // Sets completion attribute to true in order to flush
-        // Modifier needed (only Government that submitted)
-     //   contracts[id].projectDone = true;
-   // }
-
-    //function getNumberContracts() constant returns (uint){
-      //  return numberContracts;
-    //}
-
-    //function getContractHash(uint128 id) returns (bytes) {
-        //return contracts[id].termsHash;
-    //}
 }
