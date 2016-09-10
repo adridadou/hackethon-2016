@@ -1,10 +1,12 @@
 
       // PUT YOUR UNIQUE ID HERE
 //  (from the devadmin page, the one with '-edgware' appended)
-var dappId = 'pubcrawl';
+var dappId = 'pubcrawl-edgware';
 
 // PUT YOUR CALLBACK URL HERE
 var callbackUrl = 'http://localhost:8080';
+
+var web3;
 // the callback must EXACTLY match the string configured in the devadmin web UI.
 // e.g. be careful of trailing slashes
 
@@ -14,10 +16,16 @@ var contractAddress = '0x5480389cbd36a9babac289ce9ee482129acf9d7b';
 window.onload = function() {
   var walletBar = new WalletBar({
     dappNamespace: dappId,
-    authServiceCallbackUrl: callbackUrl
+    authServiceCallbackUrl: callbackUrl,
+    containerName:'#signInId'
   });
 
-  var web3 = new Web3();
+  web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
-  var myContract = web3.eth.contract(abi).at(contractAddress);
+  //var myContract = myWeb3.eth.contract(abi).at(contractAddress);
+
+  var account = walletBar.getCurrentAccount();
+
+  console.log(account);
+
 }
