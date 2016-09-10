@@ -11,7 +11,7 @@ var web3, walletBar, govContracts;
 // e.g. be careful of trailing slashes
 
 // PUT YOUR CONTRACT ADDRESS HERE
-var contractAddress = '0x3aba39d9844a936b91289d633a68b5a7f2503e72';
+var contractAddress = '0xdfb6caf0b5622cf87f56a418fee78c3f0a0b3294';
 
 window.onload = function() {
   walletBar = new WalletBar({
@@ -23,6 +23,8 @@ window.onload = function() {
   web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
   govContracts = web3.eth.contract(GovContracts.all_networks.default.abi).at(contractAddress);
+
+  loadContracts();
 }
 
 

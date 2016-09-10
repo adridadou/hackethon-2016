@@ -1,34 +1,32 @@
-pragma solidity ^0.4.1;
-
-contract Source {
+contract Sources {
     
     enum Constraint {Budget, Timeline}
 
     struct Source{
-        bytes32 hash;
-        int8 val;
+        string hash;
+        bool val;
         Constraint constraint;
         //bytes32 milestone;
     }
     
     struct Milestone{
-        mapping(uint32 => Source) sources;
-        uint32 numSources;
+        mapping(uint => Source) sources;
+        uint numSources;
     }
 
     struct PublicContract{
-        mapping(uint32 => Milestone) milestones;
+        mapping(uint => Milestone) milestones;
         //uint32 numMilestones;
     }
     
-    mapping(uint32 => PublicContract) contracts;
-    mapping(bytes32 => uint32) sourceReverseLookup;
+    mapping(uint => PublicContract) contracts;
+    mapping(string => uint) sourceReverseLookup;
     //uint32 numPublicContracts;
      
-    function addSource(uint32 contractId, uint32 milestoneId, bytes32 hash, int8 val, Constraint constraint){
+    function addSource(uint contractId, uint milestoneId, string hash, bool val, Constraint constraint){
         //does this hash already exist?
         if(sourceReverseLookup[hash] != 0){
-            uint32 sourceId = sourceReverseLookup[hash];
+            uint sourceId = sourceReverseLookup[hash];
             Source s = contracts[contractId].milestones[milestoneId].sources[sourceId];
             if(s.val == val && s.constraint == constraint){
                 // we already have this exact source in memory, so don't do anything
@@ -41,7 +39,7 @@ contract Source {
             }
         }
         //source does not exist yet, therefore create new source
-        uint32 newNumSources; 
+        uint newNumSources; 
         newNumSources = contracts[contractId].milestones[milestoneId].numSources++;
         
         contracts[contractId].milestones[milestoneId].sources[newNumSources] = Source({hash: hash, val: val, constraint: constraint});
@@ -50,19 +48,19 @@ contract Source {
         sourceReverseLookup[hash] = newNumSources;
     } 
      
-    function getSourceHash(uint32 contractId, uint32 milestoneId, uint32 sourceId) constant returns (bytes32){
+    function getSourceHash(uint contractId, uint milestoneId, uint sourceId) constant returns (string){
         return contracts[contractId].milestones[milestoneId].sources[sourceId].hash;
     }
     
-    function getSourceValue(uint32 contractId, uint32 milestoneId, uint32 sourceId) constant returns (int8){
+    function getSourceValue(uint contractId, uint milestoneId, uint sourceId) constant returns (bool){
          return contracts[contractId].milestones[milestoneId].sources[sourceId].val;
      }
      
-    function getSourceConstraint(uint32 contractId, uint32 milestoneId, uint32 sourceId) constant returns (Constraint){
+    function getSourceConstraint(uint contractId, uint milestoneId, uint sourceId) constant returns (Constraint){
         return contracts[contractId].milestones[milestoneId].sources[sourceId].constraint;
     }
      
-    function getNumberOfSources(uint32 contractId, uint32 milestoneId, Constraint constraint) constant returns (uint){
+    function getNumberOfSources(uint contractId, uint milestoneId, Constraint constraint) constant returns (uint){
          return contracts[contractId].milestones[milestoneId].numSources;
      }
 
