@@ -50,7 +50,6 @@ contract MilestoneUtility {
 		uint128 	contractId;
 		uint128 	duration;
 		uint128		targetBudget;
-		bool		withdrawn;
 	}
 
     // Create type structure for milestone submissions that can be pushed to voters
@@ -61,8 +60,29 @@ contract MilestoneUtility {
     uint32 public numberMilestones;
     // create counter for the number of government contracts and initially set to 0
 
-    function withdrawMilestone() { // Modifier needed (only Government that submitted)
-        milestones[id].withdrawn = true;
-        // Sets withdrawn to true in order to remove milestone from active list
+    function buildMilestone(uint128 govContract_id, uint128 duration, uint128 targetBudget) { 
+        // Create a new milestone 
+        // BlockOne Modifer needed (only Government)
+        
+        Milestone NewMilestone = milestones[numberMilestones];
+        NewMilestone.id = numberMilestones;
+        NewMilestone.contractId = govContract_id;
+        NewMilestone.duration = duration;
+        NewContract.targetBudget = targetBudget;
+        numberMilestones++;
     }
+
+   // function terminateContract(uint128 id) { 
+        // Sets completion attribute to true in order to flush
+        // Modifier needed (only Government that submitted)
+     //   contracts[id].projectDone = true;
+   // }
+
+    //function getNumberContracts() constant returns (uint){
+      //  return numberContracts;
+    //}
+
+    //function getContractHash(uint128 id) returns (bytes) {
+        //return contracts[id].termsHash;
+    //}
 }
