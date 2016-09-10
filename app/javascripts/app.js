@@ -6,7 +6,7 @@ var dappId = 'pubcrawl-edgware';
 // PUT YOUR CALLBACK URL HERE
 var callbackUrl = 'http://localhost:8080';
 
-var web3;
+var web3, walletBar;
 // the callback must EXACTLY match the string configured in the devadmin web UI.
 // e.g. be careful of trailing slashes
 
@@ -14,7 +14,7 @@ var web3;
 var contractAddress = '0x5480389cbd36a9babac289ce9ee482129acf9d7b';
 
 window.onload = function() {
-  var walletBar = new WalletBar({
+  walletBar = new WalletBar({
     dappNamespace: dappId,
     authServiceCallbackUrl: callbackUrl,
     containerName:'#signInId'
