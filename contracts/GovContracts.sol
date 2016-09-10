@@ -41,11 +41,8 @@ contract GovContracts {
     function getContractHash(uint128 id) returns (bytes) {
     	return contracts[id].termsHash;
     }
-}
 
-contract MilestoneUtility {
-
-	struct Milestone {
+    struct Milestone {
 		uint128 	id;
 		uint128 	contractId;
 		uint128 	duration;
