@@ -7,9 +7,6 @@ module.exports = {
     "app.css": [
       "stylesheets/app.css"
     ],
-    "bootstrap.css": [
-      "stylesheets/bootstrap.min.css"
-    ],
     "jumbotron.css": [
       "stylesheets/jumbotron.css"
     ],
