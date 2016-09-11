@@ -65,8 +65,8 @@ function loadMilestone(id) {
 	var milestones = [];
 
 	//delete rows
-	for(var i = 1; i <document.getElementById("resulttable").rows.length; i++) {
-		document.getElementById("resulttable").deleteRow(i -1);
+	for(var i = 1; i <document.getElementById("milestonetable").rows.length; i++) {
+		document.getElementById("milestonetable").deleteRow(i -1);
 	}
 
 	for(var i = 0; i < nbMilestones ; i++) {
@@ -80,7 +80,6 @@ function loadMilestone(id) {
 		cell1.innerHTML = i;
 		cell2.innerHTML = budget;
 		cell3.innerHTML = duration;
-
 	}
 }
 
