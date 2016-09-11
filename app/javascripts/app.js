@@ -1,5 +1,5 @@
 
-      // PUT YOUR UNIQUE ID HERE
+// PUT YOUR UNIQUE ID HERE
 //  (from the devadmin page, the one with '-edgware' appended)
 var dappId = 'pubcrawl-edgware';
 
@@ -24,7 +24,6 @@ window.onload = function() {
   web3.setProvider(walletBar.getHook('edgware'));
   pubCrawl = web3.eth.contract(Pubcrawl.all_networks.default.abi).at(contractAddress);
 
-  //loadContracts();
 }
 
 
@@ -35,10 +34,8 @@ function loadContracts() {
 	var contracts = [];
 
 	//delete rows
-	for(var i = 0; i <document.getElementById("resulttable").rows.length; i++) {
-		if (i>0) {
-			document.getElementById("resulttable").deleteRow(i -1);
-		}
+	for(var i = 1; i <document.getElementById("resulttable").rows.length; i++) {
+		document.getElementById("resulttable").deleteRow(i -1);
 	}
 
 	for(var i = 0; i < nbContracts ; i++) {
