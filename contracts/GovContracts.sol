@@ -35,4 +35,20 @@ contract GovContracts is PubcrawlState{
         NewMilestone.targetBudget = targetBudget;
         contracts[govContract_id].nbMilestones++;
     }
+
+    function getNumberMilestones(uint id) constant returns (uint) {
+        return contracts[id].nbMilestones;
+    }
+
+    function getNumberSources(uint contractId, uint milestoneId) constant returns (uint) {
+        return contracts[contractId].milestones[milestoneId].nbSources;
+    }
+
+    function getDuration(uint contractId, uint milestoneId) constant returns (uint) {
+        return contracts[contractId].milestones[milestoneId].duration;
+    }
+
+    function getTargetBudget(uint contractId, uint milestoneId) constant returns (uint) {
+        return contracts[contractId].milestones[milestoneId].targetBudget;
+    }
 }

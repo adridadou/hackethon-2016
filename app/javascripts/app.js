@@ -11,7 +11,7 @@ var web3, walletBar, pubCrawl;
 // e.g. be careful of trailing slashes
 
 // PUT YOUR CONTRACT ADDRESS HERE
-var contractAddress = '0x5155b763e961a7bb2621eece8393d225ab208ff7';
+var contractAddress = '0x60aa687cfb3321eb4601a04e2ca1b6720ef4bc23';
 
 window.onload = function() {
   walletBar = new WalletBar({
@@ -40,7 +40,36 @@ function loadContracts() {
 	for(var i = 0; i < nbContracts ; i++) {
 		var name = pubCrawl.getContractName.call(i);
 		var hash = pubCrawl.getContractHash.call(i);
-		var url = "vote.html?name=" + name;
+		var url = "vote.html?id=" + i;
+		var thisContract = {cname: name, chash: hash};
+		contracts[i] = thisContract;
+		var table = document.getElementById("resulttable");
+		var row = table.insertRow(i+1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		cell1.innerHTML = i;
+		cell2.innerHTML = name;
+		cell3.innerHTML = hash;
+		cell4.innerHTML = "<a href=\"" + url + "\">Go to details</a>"
+	}
+}
+
+function loadMilestone(id) {
+	var result = pubCrawl.getNumberMilestones.call(id);
+	var nbMilestones = result.c[0];
+	var milestones = [];
+
+	//delete rows
+	for(var i = 1; i <document.getElementById("resulttable").rows.length; i++) {
+		document.getElementById("resulttable").deleteRow(i -1);
+	}
+
+	for(var i = 0; i < nbMilestones ; i++) {
+		var name = pubCrawl.getContractName.call(i);
+		var hash = pubCrawl.getContractHash.call(i);
+		var url = "vote.html?id=" + i;
 		var thisContract = {cname: name, chash: hash};
 		contracts[i] = thisContract;
 		var table = document.getElementById("resulttable");
@@ -78,6 +107,6 @@ function createMilestone(contractId, duration, budget) {
 function getContractNameFromURL() {
 	var url = document.URL;
 	var vars = url.split("=");
-	var name = vars[1];
-	document.getElementById("projectname").innerHTML = name;
+	var id = vars[1];
+	document.getElementById("projectname").innerHTML = var name = pubCrawl.getContractName.call(id);
 }
