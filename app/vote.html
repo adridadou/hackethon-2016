@@ -54,8 +54,17 @@
         <h1>Building the <span id="projectname"></span> project</h1>
         <p class="lead">Here you can look at the milestones and vote if they have been met</p>
       </div>
-      <div class="btn btn-default" onclick="createMilestone(1232, 321, 321)">Create New Milestone</div>
-      <div class="btn btn-default" onclick="loadMilestone(0)">Load Milestone</div>
+      <form class="form-inline">
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputEmail3">Email address</label>
+          <input type="budget" class="form-control" id="budget" placeholder="Budget">
+        </div>
+        <div class="form-group">
+          <label class="sr-only" for="exampleInputPassword3">Password</label>
+          <input type="duration" class="form-control" id="duration" placeholder="Duration">
+        </div>
+      <div class="btn btn-default" onclick="createMilestone()">Create New Milestone</div>
+      <div class="btn btn-default" onclick="loadMilestone()">Load Milestone</div>
 
         <div class="bs-example" data-example-id="striped-table"> 
       <table class="table table-striped" id="milestonetable"> 

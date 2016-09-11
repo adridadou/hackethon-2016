@@ -59,8 +59,11 @@ function loadContracts() {
 	}
 }
 
-function loadMilestone(id) {
-	console.log(id);
+function loadMilestone() {
+	var url = document.URL;
+	var vars = url.split("=");
+	var id = vars[1];
+
 	var result = pubCrawl.getNumberMilestones.call(id);
 	var nbMilestones = result.c[0];
 	console.log(nbMilestones);
@@ -97,7 +100,16 @@ function createGovContract() {
 	  });
 }
 
-function createMilestone(contractId, duration, budget) {
+function createMilestone() {
+	var duration = parseInt(document.getElementById("duration").value);
+	var budget = parseInt(document.getElementById("budget").value);
+	var url = document.URL;
+	var vars = url.split("=");
+	var contractId = vars[1];
+
+	console.log(duration);
+	console.log(budget);
+	console.log(contractId);
 	walletBar.createSecureSigner();
 	var currentAccount = walletBar.getCurrentAccount();
 	pubCrawl.buildMilestone.sendTransaction(contractId, duration, budget, { gas: 1e6, from: currentAccount },function(err,result){
