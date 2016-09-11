@@ -55,13 +55,13 @@
         <p class="lead">Here you can look at the milestones and vote if they have been met</p>
       </div>
       <div class="btn btn-default" onclick="createMilestone(1232, 321, 321)">Create New Milestone</div>
+      <div class="btn btn-default" onclick="loadMilestone(0)">Load Milestone</div>
 
         <div class="bs-example" data-example-id="striped-table"> 
       <table class="table table-striped" id="milestonetable"> 
         <thead> 
           <tr> 
             <th>#</th> 
-            <th>Name</th> 
             <th>Budget</th>
             <th>Deadline</th>  
             <th>Vote</th>  
@@ -70,7 +70,6 @@
         <tbody> 
           <tr>
             <td></td>
-            <td>Build first building</td>
             <td>1000000</td> 
             <td>2017-08</td>
             <td>
@@ -140,6 +139,8 @@
     <script src="https://blockone-wallet-bar.tr-api-services.net/bundle.js"></script>
     <script src="https://rawgit.com/ethereum/web3.js/develop/dist/web3.min.js"></script>
     <script src="./app.js"></script>
-    <script>getContractNameFromURL()</script>
+    <script>
+      $( document ).ready( getContractNameFromURL )
+    </script>
   </body>
 </html>

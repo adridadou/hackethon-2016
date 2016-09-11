@@ -67,21 +67,17 @@ function loadMilestone(id) {
 	}
 
 	for(var i = 0; i < nbMilestones ; i++) {
-		var name = pubCrawl.getContractName.call(i);
-		var hash = pubCrawl.getContractHash.call(i);
-		var url = "vote.html?id=" + i;
-		var thisContract = {cname: name, chash: hash};
-		contracts[i] = thisContract;
-		var table = document.getElementById("resulttable");
+		var budget = pubCrawl.getTargetBudget.call(id, i);
+		var duration = pubCrawl.getDuration.call(id, i);
+		var table = document.getElementById("milestonetable");
 		var row = table.insertRow(i+1);
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
-		var cell4 = row.insertCell(3);
 		cell1.innerHTML = i;
-		cell2.innerHTML = name;
-		cell3.innerHTML = hash;
-		cell4.innerHTML = "<a href=\"" + url + "\">Go to details</a>"
+		cell2.innerHTML = budget;
+		cell3.innerHTML = duration;
+
 	}
 }
 
