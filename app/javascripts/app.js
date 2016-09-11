@@ -36,8 +36,9 @@ function loadContracts() {
 	var contracts = [];
 
 	//delete rows
-	for(var i = 1; i <document.getElementById("resulttable").rows.length; i++) {
-		document.getElementById("resulttable").deleteRow(i -1);
+	var table = document.getElementById("resulttable");
+	while(table.rows.length > 1) {
+  		table.deleteRow(1);
 	}
 
 	for(var i = 0; i < nbContracts ; i++) {
@@ -46,7 +47,7 @@ function loadContracts() {
 		var url = "vote.html?id=" + i;
 		var thisContract = {cname: name, chash: hash};
 		contracts[i] = thisContract;
-		var table = document.getElementById("resulttable");
+		
 		var row = table.insertRow(i+1);
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
@@ -70,15 +71,16 @@ function loadMilestone() {
 	var milestones = [];
 
 	//delete rows
-	for(var i = 1; i <document.getElementById("milestonetable").rows.length; i++) {
-		document.getElementById("milestonetable").deleteRow(i);
+	var table = document.getElementById("milestonetable");
+	while(table.rows.length > 1) {
+  		table.deleteRow(1);
 	}
 
 	for(var i = 0; i < nbMilestones ; i++) {
 		var budget = pubCrawl.getTargetBudget.call(id, i);
 		var duration = pubCrawl.getDuration.call(id, i);
 		
-		var table = document.getElementById("milestonetable");
+		
 		var row = table.insertRow(i+1);
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
