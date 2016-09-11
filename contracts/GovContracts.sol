@@ -1,4 +1,4 @@
-import "PubcrawlState.sol";
+import "./PubcrawlState.sol";
 
 contract GovContracts is PubcrawlState{
 
