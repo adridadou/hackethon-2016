@@ -61,14 +61,21 @@ function loadContracts() {
 
 
 function createGovContract() {
-	console.log('creating gov contract!');
 	walletBar.createSecureSigner();
 	var currentAccount = walletBar.getCurrentAccount();
 	var name = document.getElementById("name").value;
 	var hash = document.getElementById("hash").value;
 	  pubCrawl.buildContract.sendTransaction(hash, name, { gas: 1e6, from: currentAccount },function(err,result){
-	  	console.log(result);
+	  	//don't do much, it's a demo
 	  });
+}
+
+function createMilestone(contractId, duration, budget) {
+	walletBar.createSecureSigner();
+	var currentAccount = walletBar.getCurrentAccount();
+	pubCrawl.buildMilestone.sendTransaction(contractId, duration, budget, { gas: 1e6, from: currentAccount },function(err,result){
+	  	//don't do much, it's a demo
+	});
 }
 
 
