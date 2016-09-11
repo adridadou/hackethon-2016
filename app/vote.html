@@ -17,9 +17,6 @@
     <!-- Custom styles for this template -->
     <link href="starter-template.css" rel="stylesheet">
 
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -29,7 +26,6 @@
   </head>
 
   <body>
-
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
@@ -55,10 +51,9 @@
     <div class="container">
 
       <div class="starter-template">
-        <h1>Building the road poject</h1>
+        <h1>Building the <span id="projectname"></span> project</h1>
         <p class="lead">Here you can look at the milestones and vote if they have been met</p>
       </div>
-
 
       <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
@@ -173,5 +168,6 @@
     <script src="https://blockone-wallet-bar.tr-api-services.net/bundle.js"></script>
     <script src="https://rawgit.com/ethereum/web3.js/develop/dist/web3.min.js"></script>
     <script src="./app.js"></script>
+    <script>getContractNameFromURL()</script>
   </body>
 </html>

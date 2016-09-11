@@ -24,7 +24,7 @@ window.onload = function() {
   web3.setProvider(walletBar.getHook('edgware'));
   pubCrawl = web3.eth.contract(Pubcrawl.all_networks.default.abi).at(contractAddress);
 
-  loadContracts();
+  //loadContracts();
 }
 
 
@@ -44,6 +44,7 @@ function loadContracts() {
 	for(var i = 0; i < nbContracts ; i++) {
 		var name = pubCrawl.getContractName.call(i);
 		var hash = pubCrawl.getContractHash.call(i);
+		var url = "vote.html?name=" + name;
 		var thisContract = {cname: name, chash: hash};
 		contracts[i] = thisContract;
 		var table = document.getElementById("resulttable");
@@ -51,12 +52,13 @@ function loadContracts() {
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
 		cell1.innerHTML = i;
 		cell2.innerHTML = name;
 		cell3.innerHTML = hash;
+		cell4.innerHTML = "<a href=\"" + url + "\">Go to details</a>"
 	}
 	console.log(contracts);
-
 }
 
 
@@ -78,5 +80,10 @@ function createMilestone(contractId, duration, budget) {
 	});
 }
 
-
-
+function getContractNameFromURL() {
+	var url = document.URL;
+	var vars = url.split("=");
+	var name = vars[1];
+	document.getElementById("projectname").innerHTML = name;
+	console.log(name);
+}
