@@ -1,4 +1,4 @@
 module.exports = function(deployer) {
-  deployer.deploy(GovContracts);
+  deployer.deploy(Pubcrawl);
   deployer.autolink();
 };
