@@ -55,109 +55,81 @@
         <p class="lead">Here you can look at the milestones and vote if they have been met</p>
       </div>
       <div class="btn btn-default" onclick="createMilestone(1232, 321, 321)">Create New Milestone</div>
-      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingOne">
-      <h4 class="panel-title">
-        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Milestone #1
-        </a>
-      </h4>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-        <div>
-          <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Red
-          </button>
 
-          <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Green
-          </button>
-
-        </div>
-      </div>
+        <div class="bs-example" data-example-id="striped-table"> 
+      <table class="table table-striped" id="milestonetable"> 
+        <thead> 
+          <tr> 
+            <th>#</th> 
+            <th>Name</th> 
+            <th>Budget</th>
+            <th>Deadline</th>  
+            <th>Vote</th>  
+          </tr> 
+        </thead> 
+        <tbody> 
+          <tr>
+            <td></td>
+            <td>Build first building</td>
+            <td>1000000</td> 
+            <td>2017-08</td>
+            <td>
+              <div class="btn btn-danger" data-toggle="modal" data-target="#voteredmodal">Red</div>
+              <div class="btn btn-success" data-toggle="modal" data-target="#votegreenmodal">Green</div></td>
+          </tr>
+        </tbody> 
+      </table> 
     </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Milestone #2
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-         <div>
-          <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Red
-          </button>
-
-          <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Green
-          </button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingThree">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Milestone #3
-        </a>
-      </h4>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-         <div>
-          <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Red
-          </button>
-
-          <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Green
-          </button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingTwo">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Milestone #4
-        </a>
-      </h4>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-         <div>
-          <button type="button" class="btn btn-danger" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Red
-          </button>
-
-          <button type="button" class="btn btn-success" data-toggle="button" aria-pressed="false" autocomplete="off">
-              Green
-          </button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 
     </div><!-- /.container -->
 
+    <!-- Modal RED-->
+    <div id="voteredmodal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Submit Source for RED vote</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Source</label>
+              <input class="form-control" id="source" placeholder="Link">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Modal GREEN-->
+    <div id="votegreenmodal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Submit Source for GREEN vote</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Source</label>
+              <input class="form-control" id="source" placeholder="Link">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
