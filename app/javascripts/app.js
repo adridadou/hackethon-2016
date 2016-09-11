@@ -6,7 +6,7 @@ var dappId = 'pubcrawl-edgware';
 // PUT YOUR CALLBACK URL HERE
 var callbackUrl = 'http://localhost:8080';
 
-var web3, walletBar, pubCrawl;
+var web3, walletBar, pubCrawl, contractId;
 // the callback must EXACTLY match the string configured in the devadmin web UI.
 // e.g. be careful of trailing slashes
 
@@ -107,6 +107,6 @@ function createMilestone(contractId, duration, budget) {
 function getContractNameFromURL() {
 	var url = document.URL;
 	var vars = url.split("=");
-	var id = vars[1];
-	document.getElementById("projectname").innerHTML = var name = pubCrawl.getContractName.call(id);
+	contractId = vars[1];
+	document.getElementById("projectname").innerHTML = pubCrawl.getContractName.call(contractId);
 }
