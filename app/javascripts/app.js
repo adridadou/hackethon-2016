@@ -33,6 +33,14 @@ function loadContracts() {
 	var nbContracts = result.c[0];
 	console.log(result);
 	var contracts = [];
+
+	//delete rows
+	for(var i = 0; i <document.getElementById("resulttable").rows.length; i++) {
+		if (i>0) {
+			document.getElementById("resulttable").deleteRow(i -1);
+		}
+	}
+
 	for(var i = 0; i < nbContracts ; i++) {
 		var name = pubCrawl.getContractName.call(i);
 		var hash = pubCrawl.getContractHash.call(i);
@@ -58,7 +66,7 @@ function createGovContract() {
 	var currentAccount = walletBar.getCurrentAccount();
 	var name = document.getElementById("name").value;
 	var hash = document.getElementById("hash").value;
-	  pubCrawl.buildContract.sendTransaction(name, hash, { gas: 1e6, from: currentAccount },function(err,result){
+	  pubCrawl.buildContract.sendTransaction(hash, name, { gas: 1e6, from: currentAccount },function(err,result){
 	  	console.log(result);
 	  });
 }
