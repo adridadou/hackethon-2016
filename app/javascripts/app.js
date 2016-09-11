@@ -60,18 +60,21 @@ function loadContracts() {
 }
 
 function loadMilestone(id) {
+	console.log(id);
 	var result = pubCrawl.getNumberMilestones.call(id);
 	var nbMilestones = result.c[0];
+	console.log(nbMilestones);
 	var milestones = [];
 
 	//delete rows
 	for(var i = 1; i <document.getElementById("milestonetable").rows.length; i++) {
-		document.getElementById("milestonetable").deleteRow(i -1);
+		document.getElementById("milestonetable").deleteRow(i);
 	}
 
 	for(var i = 0; i < nbMilestones ; i++) {
 		var budget = pubCrawl.getTargetBudget.call(id, i);
 		var duration = pubCrawl.getDuration.call(id, i);
+		
 		var table = document.getElementById("milestonetable");
 		var row = table.insertRow(i+1);
 		var cell1 = row.insertCell(0);
