@@ -85,9 +85,13 @@ function loadMilestone() {
 		var cell1 = row.insertCell(0);
 		var cell2 = row.insertCell(1);
 		var cell3 = row.insertCell(2);
+		var cell4 = row.insertCell(3);
+		var cell5 = row.insertCell(4);
 		cell1.innerHTML = i;
 		cell2.innerHTML = budget;
 		cell3.innerHTML = duration;
+		cell4.innerHTML = "<div class=\"btn btn-danger\" data-toggle=\"modal\" data-target=\"#voteredmodal\">Red</div><div class=\"btn btn-success\" data-toggle=\"modal\" data-target=\"#votegreenmodal\">Green</div>"
+		cell5.innerHTML = "<a href=\"voteresults.html\">Go to Results</a>"
 	}
 }
 
