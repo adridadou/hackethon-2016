@@ -22,12 +22,23 @@ contract PubcrawlState {
 		uint	targetBudget;
         uint    nbSources;
         mapping(uint => Source) sources;
+        mapping(uint => Vote) votes;
 	}
     struct Source{
         string hash;
         bool val;
         Constraint constraint;
     }
+    struct Vote {
+    	IndividualVote globalVote;
+    	mapping(address => IndividualVote) votes;
+    }
+
+    struct IndividualVote {
+    	uint positive;
+    	uint negative;
+    }
+
     enum Constraint {None, Budget, Timeline}
     mapping(string => Source) sourceReverseLookup;
 }
