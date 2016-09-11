@@ -22,14 +22,14 @@ window.onload = function() {
 
   web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
-  pubCrawl = web3.eth.contract(PubCrawl.all_networks.default.abi).at(contractAddress);
+  pubCrawl = web3.eth.contract(Pubcrawl.all_networks.default.abi).at(contractAddress);
 
   loadContracts();
 }
 
 
 function loadContracts() {
-	var result = govContracts.getNumberContracts.call();
+	var result = pubCrawl.getNumberContracts.call();
 	var nbContracts = result.c[0];
 	var contracts = [];
 	for(var i = 0; i < nbContracts ; i++) {
