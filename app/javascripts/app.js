@@ -33,9 +33,8 @@ function loadContracts() {
 	var nbContracts = result.c[0];
 	var contracts = [];
 	for(var i = 0; i < nbContracts ; i++) {
-		var result = pubCrawl.getContractName.call(i);
-		var result = pubCrawl.getContractHash.call(i);
-		console.log(result);
+		var name = pubCrawl.getContractName.call(i).c[0];
+		var hash = pubCrawl.getContractHash.call(i).c[0];
 	}
 }
 
