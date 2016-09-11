@@ -28,8 +28,8 @@ contract GovContracts is PubcrawlState{
     function buildMilestone(uint govContract_id, uint duration, uint targetBudget) { 
         // Create a new milestone 
         // BlockOne Modifer needed (only Government)
-        
-        Milestone NewMilestone = contracts[govContract_id].milestones[contracts[govContract_id].nbMilestones];
+        uint milestoneId = contracts[govContract_id].nbMilestones;
+        Milestone NewMilestone = contracts[govContract_id].milestones[milestoneId];
         NewMilestone.contractId = govContract_id;
         NewMilestone.duration = duration;
         NewMilestone.targetBudget = targetBudget;

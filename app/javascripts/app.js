@@ -11,7 +11,7 @@ var web3, walletBar, pubCrawl, contractId;
 // e.g. be careful of trailing slashes
 
 // PUT YOUR CONTRACT ADDRESS HERE
-var contractAddress = '0x60aa687cfb3321eb4601a04e2ca1b6720ef4bc23';
+var contractAddress = '0xc35dd2855714db4b366cba9d4eee0eee101895fd';
 
 var isReadyDeffered = jQuery.Deferred();
 var isReadyPromise = isReadyDeffered.promise();
