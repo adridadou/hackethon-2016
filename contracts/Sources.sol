@@ -26,9 +26,9 @@ contract Sources is GovContracts {
         }
         //source does not exist yet, therefore create new source
         
-        contracts[contractId].milestones[milestoneId].sources[contracts[contractId].milestones[milestoneId].nbSources] = Source({hash: hash, val: val, constraint: constraint});
+        contracts[contractId].milestones[milestoneId].sources[contracts[contractId].milestones[milestoneId].nbSources] = Source({hash: hash, val: val, constraint: constraint, weight:0});
         contracts[contractId].milestones[milestoneId].nbSources++;
-        sourceReverseLookup[hash] = Source({hash: hash, val: val, constraint: constraint});
+        sourceReverseLookup[hash] = Source({hash: hash, val: val, constraint: constraint, weight: 0});
     } 
      
     function getSourceHash(uint contractId, uint milestoneId, uint sourceId) constant returns (string){

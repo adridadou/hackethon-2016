@@ -36,8 +36,8 @@ contract GovContracts is PubcrawlState{
         contracts[govContract_id].nbMilestones++;
     }
 
-    function getNumberMilestones(uint id) constant returns (uint) {
-        return contracts[id].nbMilestones;
+    function getNumberMilestones(uint contractId) constant returns (uint) {
+        return contracts[contractId].nbMilestones;
     }
 
     function getNumberSources(uint contractId, uint milestoneId) constant returns (uint) {
