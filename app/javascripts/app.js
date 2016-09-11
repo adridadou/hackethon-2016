@@ -30,7 +30,6 @@ window.onload = function() {
 function loadContracts() {
 	var result = pubCrawl.getNumberContracts.call();
 	var nbContracts = result.c[0];
-	console.log(result);
 	var contracts = [];
 
 	//delete rows
@@ -55,7 +54,6 @@ function loadContracts() {
 		cell3.innerHTML = hash;
 		cell4.innerHTML = "<a href=\"" + url + "\">Go to details</a>"
 	}
-	console.log(contracts);
 }
 
 
@@ -82,5 +80,4 @@ function getContractNameFromURL() {
 	var vars = url.split("=");
 	var name = vars[1];
 	document.getElementById("projectname").innerHTML = name;
-	console.log(name);
 }
