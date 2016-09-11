@@ -33,6 +33,8 @@ contract PubcrawlState {
     struct Vote {
     	IndividualVote globalVote;
     	mapping(address => IndividualVote) votes;
+    	bool resolved;
+    	bool val;
     }
 
     struct IndividualVote {
