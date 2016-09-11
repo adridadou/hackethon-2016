@@ -28,6 +28,7 @@ contract PubcrawlState {
         string hash;
         bool val;
         Constraint constraint;
+        uint weight;
     }
     struct Vote {
     	IndividualVote globalVote;
