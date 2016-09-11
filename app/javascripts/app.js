@@ -13,6 +13,9 @@ var web3, walletBar, pubCrawl, contractId;
 // PUT YOUR CONTRACT ADDRESS HERE
 var contractAddress = '0x60aa687cfb3321eb4601a04e2ca1b6720ef4bc23';
 
+var isReadyDeffered = jQuery.Deferred();
+var isReadyPromise = isReadyDeffered.promise();
+
 window.onload = function() {
   walletBar = new WalletBar({
     dappNamespace: dappId,
@@ -23,7 +26,7 @@ window.onload = function() {
   web3 = new Web3();
   web3.setProvider(walletBar.getHook('edgware'));
   pubCrawl = web3.eth.contract(Pubcrawl.all_networks.default.abi).at(contractAddress);
-
+  isReadyDeffered.resolve('');
 }
 
 

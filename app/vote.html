@@ -140,7 +140,7 @@
     <script src="https://rawgit.com/ethereum/web3.js/develop/dist/web3.min.js"></script>
     <script src="./app.js"></script>
     <script>
-      $( document ).ready( getContractNameFromURL )
+      isReadyPromise.then(getContractNameFromURL);
     </script>
   </body>
 </html>
