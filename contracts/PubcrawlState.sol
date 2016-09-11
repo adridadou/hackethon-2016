@@ -22,7 +22,7 @@ contract PubcrawlState {
 		uint	targetBudget;
         uint    nbSources;
         mapping(uint => Source) sources;
-        mapping(uint => Vote) votes;
+        mapping(uint => Vote) votes; //uint represents Constraint 
 	}
     struct Source{
         string hash;
