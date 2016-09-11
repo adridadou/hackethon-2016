@@ -1,4 +1,4 @@
-import "./GovContracts.sol";
+import "GovContracts.sol";
 
 contract Sources is GovContracts {
      
