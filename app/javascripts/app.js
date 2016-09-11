@@ -31,12 +31,24 @@ window.onload = function() {
 function loadContracts() {
 	var result = pubCrawl.getNumberContracts.call();
 	var nbContracts = result.c[0];
+	console.log(result);
 	var contracts = [];
 	for(var i = 0; i < nbContracts ; i++) {
-		var name = pubCrawl.getContractName.call(i).c[0];
-		var hash = pubCrawl.getContractHash.call(i).c[0];
-		//TODO: integrate that to an object, then append it to an array to create a table
+		var name = pubCrawl.getContractName.call(i);
+		var hash = pubCrawl.getContractHash.call(i);
+		var thisContract = {cname: name, chash: hash};
+		contracts[i] = thisContract;
+		var table = document.getElementById("resulttable");
+		var row = table.insertRow(i+1);
+		var cell1 = row.insertCell(0);
+		var cell2 = row.insertCell(1);
+		var cell3 = row.insertCell(2);
+		cell1.innerHTML = i;
+		cell2.innerHTML = name;
+		cell3.innerHTML = hash;
 	}
+	console.log(contracts);
+
 }
 
 
@@ -44,8 +56,9 @@ function createGovContract() {
 	console.log('creating gov contract!');
 	walletBar.createSecureSigner();
 	var currentAccount = walletBar.getCurrentAccount();
-
-	  pubCrawl.buildContract.sendTransaction('helloworld','helloworld', { gas: 1e6, from: currentAccount },function(err,result){
+	var name = document.getElementById("name").value;
+	var hash = document.getElementById("hash").value;
+	  pubCrawl.buildContract.sendTransaction(name, hash, { gas: 1e6, from: currentAccount },function(err,result){
 	  	console.log(result);
 	  });
 }
