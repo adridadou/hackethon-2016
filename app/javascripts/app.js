@@ -11,7 +11,7 @@ var web3, walletBar, pubCrawl;
 // e.g. be careful of trailing slashes
 
 // PUT YOUR CONTRACT ADDRESS HERE
-var contractAddress = '0x5155b763e961a7bb2621eece8393d225ab208ff7';
+var contractAddress = '0x60aa687cfb3321eb4601a04e2ca1b6720ef4bc23';
 
 window.onload = function() {
   walletBar = new WalletBar({

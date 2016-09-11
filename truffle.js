@@ -20,6 +20,7 @@ module.exports = {
   },
   rpc: {
     host: "localhost",
-    port: 8545
+    port: 8545,
+    from: "0x23926472c98e2f18c9c1d18727084a6677c652a9"
   }
 };
