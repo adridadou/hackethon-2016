@@ -64,7 +64,7 @@ function loadMilestone() {
 	var vars = url.split("=");
 	var id = vars[1];
 
-	var result = pubCrawl.getNumberMilestones.call(id);
+	var result = pubCrawl.getNumberMilestones.call(parseInt(id));
 	var nbMilestones = result.c[0];
 	console.log(nbMilestones);
 	var milestones = [];
@@ -105,7 +105,7 @@ function createMilestone() {
 	var budget = parseInt(document.getElementById("budget").value);
 	var url = document.URL;
 	var vars = url.split("=");
-	var contractId = vars[1];
+	var contractId = parseInt(vars[1]);
 
 	console.log(duration);
 	console.log(budget);
@@ -114,6 +114,8 @@ function createMilestone() {
 	var currentAccount = walletBar.getCurrentAccount();
 	pubCrawl.buildMilestone.sendTransaction(contractId, duration, budget, { gas: 1e6, from: currentAccount },function(err,result){
 	  	//don't do much, it's a demo
+	  	console.log(err);
+	  	console.log(result);
 	});
 }
 
